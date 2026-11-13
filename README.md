@@ -16,11 +16,13 @@ Jupyter Notebook (customer_churn_prediction.ipynb)
 The core of this project is the Jupyter Notebook, which encompasses the following key stages:
 
 Data Loading and Exploration: Loading the dataset (assumed to be in your_dataset.csv) and performing initial exploratory data analysis to understand its structure, features, and target variable ('Churn'). This includes visualizing data distributions and identifying potential issues like missing values.
+
 Data Preprocessing: Cleaning and preparing the data for machine learning models. This involves:
 Handling missing values (e.g., imputation).
 Encoding categorical features (using Label Encoding and One-Hot Encoding).
 Scaling numerical features (using StandardScaler).
 Feature Engineering (Optional): Creating new features from existing ones to potentially improve model performance. An example implemented is grouping customer tenure.
+
 Model Selection and Training: Training and comparing the performance of several classification models:
 Logistic Regression
 Random Forest Classifier
@@ -30,6 +32,7 @@ Accuracy
 Classification Report (Precision, Recall, F1-Score)
 Confusion Matrix (visualized as a heatmap)
 Feature Importance (for tree-based models, visualized as bar plots)
+
 Visualization of Results: Utilizing libraries like Matplotlib and Seaborn to create informative visualizations, including:
 Distribution of the target variable.
 Confusion matrices for each model.
