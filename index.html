@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Churn Prediction — ML Project</title>
+  <link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)" />
+  <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600;800&display=swap)" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-theme="dark">
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-shapes">
+      <span class="sh circle"></span><span class="sh square"></span><span class="sh triangle"></span>
+    </div>
+    <div class="loader-title">Project <span class="acc"></span>Loading...</div>
+    <div class="bar"><div class="bar-fill" id="barFill"></div></div>
+    <div class="loader-info"><span id="loadStep">init</span><span id="loadPct">0%</span></div>
+  </div>
+
+  <canvas id="stars"></canvas>
+
+  <!-- HEADER -->
+  <header class="top">
+    <a class="logo" href="#hero">
+      <span class="g-circle"></span><span class="g-square"></span><span class="g-tri"></span>
+      <b>CHURN/ML</b>
+    </a>
+    <nav class="links">
+      <a href="#approach" data-i18n="nav1"></a>
+      <a href="#insights" data-i18n="nav2"></a>
+      <a href="#model" data-i18n="nav3"></a>
+      <a href="#actions" data-i18n="nav4"></a>
+    </nav>
+    <div class="controls">
+      <div class="accents" id="accents">
+        <button class="sw" data-c="#E63946" style="--c:#E63946" aria-label="red"></button>
+        <button class="sw" data-c="#F4B400" style="--c:#F4B400" aria-label="yellow"></button>
+        <button class="sw" data-c="#1D4ED8" style="--c:#1D4ED8" aria-label="blue"></button>
+        <button class="sw" data-c="#10B981" style="--c:#10B981" aria-label="green"></button>
+        <label class="sw custom" title="Custom"><input type="color" id="accentPick" value="#E63946" /></label>
+      </div>
+      <button class="lang" id="langBtn"><span data-l="en">EN</span>/<span data-l="fr">FR</span></button>
+      <button class="theme" id="themeBtn" aria-label="theme">
+        <span class="knob">
+          <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><g stroke-width="2"><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/><line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/><line x1="4.2" y1="4.2" x2="6.3" y2="6.3"/><line x1="17.7" y1="17.7" x2="19.8" y2="19.8"/><line x1="4.2" y1="19.8" x2="6.3" y2="17.7"/><line x1="17.7" y1="6.3" x2="19.8" y2="4.2"/></g></svg>
+          <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <div class="hero-geo">
+        <span class="hg c"></span><span class="hg s"></span><span class="hg t"></span><span class="hg l"></span>
+      </div>
+      <p class="tag" data-i18n="tag"></p>
+      <h1 data-i18n="title"></h1>
+      <p class="lead" data-i18n="lead"></p>
+      <div class="kpis">
+        <div class="kpi"><b>12,480</b><span data-i18n="k1"></span></div>
+        <div class="kpi"><b>18.4%</b><span data-i18n="k2"></span></div>
+        <div class="kpi"><b>0.89</b><span data-i18n="k3"></span></div>
+        <div class="kpi acc-bg"><b>€410K</b><span data-i18n="k4"></span></div>
+      </div>
+      <p class="disclaimer" data-i18n="disc"></p>
+    </section>
+
+    <!-- APPROACH -->
+    <section id="approach">
+      <h2><em>01</em><span data-i18n="s1"></span></h2>
+      <div class="steps">
+        <div class="step"><i class="geo-c"></i><h3 data-i18n="p1t"></h3><p data-i18n="p1"></p></div>
+        <div class="step"><i class="geo-s"></i><h3 data-i18n="p2t"></h3><p data-i18n="p2"></p></div>
+        <div class="step"><i class="geo-t"></i><h3 data-i18n="p3t"></h3><p data-i18n="p3"></p></div>
+        <div class="step"><i class="geo-c"></i><h3 data-i18n="p4t"></h3><p data-i18n="p4"></p></div>
+      </div>
+    </section>
+
+    <!-- INSIGHTS -->
+    <section id="insights">
+      <h2><em>02</em><span data-i18n="s2"></span></h2>
+      <p class="hint" data-i18n="hint"></p>
+      <div class="grid">
+        <div class="card" data-chart="contract"><div class="card-h"><h3 data-i18n="c_contract"></h3><button class="info">?</button></div><canvas></canvas></div>
+        <div class="card" data-chart="tenure"><div class="card-h"><h3 data-i18n="c_tenure"></h3><button class="info">?</button></div><canvas></canvas></div>
+        <div class="card wide" data-chart="trend"><div class="card-h"><h3 data-i18n="c_trend"></h3><button class="info">?</button></div><canvas></canvas></div>
+      </div>
+    </section>
+
+    <!-- MODEL -->
+    <section id="model">
+      <h2><em>03</em><span data-i18n="s3"></span></h2>
+      <div class="metrics">
+        <div><b>91.6%</b><span data-i18n="m1"></span></div>
+        <div><b>83.5%</b><span data-i18n="m2"></span></div>
+        <div><b>85.2%</b><span data-i18n="m3"></span></div>
+        <div><b>0.89</b><span>ROC-AUC</span></div>
+      </div>
+      <div class="grid">
+        <div class="card" data-chart="features"><div class="card-h"><h3 data-i18n="c_features"></h3><button class="info">?</button></div><canvas></canvas></div>
+        <div class="card" data-chart="roc"><div class="card-h"><h3 data-i18n="c_roc"></h3><button class="info">?</button></div><canvas></canvas></div>
+        <div class="card" data-chart="confusion"><div class="card-h"><h3 data-i18n="c_conf"></h3><button class="info">?</button></div><canvas></canvas></div>
+        <div class="card" data-chart="risk"><div class="card-h"><h3 data-i18n="c_risk"></h3><button class="info">?</button></div><canvas></canvas></div>
+      </div>
+    </section>
+
+    <!-- ACTIONS -->
+    <section id="actions">
+      <h2><em>04</em><span data-i18n="s4"></span></h2>
+      <div class="recs">
+        <div class="rec"><span class="num">A</span><h3 data-i18n="r1t"></h3><p data-i18n="r1"></p><b class="gain">+€180K</b></div>
+        <div class="rec"><span class="num">B</span><h3 data-i18n="r2t"></h3><p data-i18n="r2"></p><b class="gain">+€130K</b></div>
+        <div class="rec"><span class="num">C</span><h3 data-i18n="r3t"></h3><p data-i18n="r3"></p><b class="gain">+€100K</b></div>
+      </div>
+      <div class="roi">
+        <div><span data-i18n="roi1"></span><b>€1.2M</b></div>
+        <div><span data-i18n="roi2"></span><b>€85K</b></div>
+        <div><span data-i18n="roi3"></span><b>€410K</b></div>
+        <div class="acc-bg"><span>ROI</span><b>4.8×</b></div>
+      </div>
+      <p class="stack"><b>Stack —</b> Python · pandas · scikit-learn · XGBoost · SHAP · SQL · HTML/CSS/JS</p>
+    </section>
+  </main>
+
+  <footer><span data-i18n="foot"></span> · 2026</footer>
+
+  <!-- MODAL -->
+  <div id="modal" class="modal">
+    <div class="modal-box">
+      <div class="modal-geo"><span></span><span></span><span></span></div>
+      <button class="close" id="closeModal">×</button>
+      <h3 id="mTitle"></h3>
+      <h4 data-i18n="what"></h4><p id="mWhat"></p>
+      <h4 data-i18n="read"></h4><p id="mRead"></p>
+      <h4 class="acc-t" data-i18n="biz"></h4><p id="mBiz" class="biz"></p>
+    </div>
+  </div>
+
+  <div id="tip" class="tip"></div>
+  <script src="script.js"></script>
+</body>
+</html>
